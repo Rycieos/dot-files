@@ -1,4 +1,8 @@
+execute pathogen#infect()
 syntax enable               " enable syntax processing
+set background=dark         " dark backgroud for the eyes
+let g:solarized_termcolors=256  " for compatability with everything
+colorscheme solarized
 set nocompatible            " do not be vi when config loaded on command line
 set tabstop=4               " number of visual spaces per TAB
 set softtabstop=4           " number of spaces in tab when editing
@@ -7,7 +11,7 @@ set expandtab               " tabs are spaces
 set number                  " show line numbers
 set relativenumber          " show other lines as relative from current
 set cursorline              " highlight current line
-filetype indent on          " load filetype-specific indent files
+filetype plugin indent on   " load filetype-specific indent files
 set wildmenu                " visual autocomplete for command menu
 set lazyredraw              " redraw only when we need to
 set ignorecase              " case-insentive search by default
@@ -20,7 +24,6 @@ set foldenable              " enable folding
 set foldlevelstart=10       " open most folds by default
 set foldnestmax=10          " 10 nested fold max
 set foldmethod=syntax       " syntax is used to specify folds
-colorscheme desert
 set mouse=a                 " full mouse support
 set autoindent              " auto-indent after return
 set autoread
@@ -29,15 +32,15 @@ set virtualedit=block       " let cursor move past the last char in visual mode
 set matchpairs+=<:>         " show more matching characters
 set undofile                " persistent undo across sessions
 set undodir=~/.vim/undodir  " dir must exist to work
-set clipboard=unnamed       " all operations work with the clipboard.
+set clipboard=unnamed       " all operations work with the clipboard
 set backspace=indent,eol,start  " make backspace work over anything
+set list listchars=trail:·,tab:»·   " render tabs and trailing spaces
 
 let mapleader = ","         " leader key is comma
 
 " for shift fumbles
 nnoremap :Q! :q!
 nnoremap :Q :q 
-nnoremap :WQ :wq
 nnoremap :X :x
 nnoremap :W :w
 

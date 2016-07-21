@@ -1,7 +1,6 @@
 # There are 3 different types of shells in bash: the login shell, normal shell
 # and interactive shell. Login shells read ~/.profile and interactive shells
-# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
-# settings made here will also take effect in a login shell.
+# read ~/.bashrc. To make all shells read ~/.bashrc, load it in ~/.bash_profile
 
 export EDITOR=vim
 export TERM="xterm-256color"
@@ -12,12 +11,12 @@ export TERM="xterm-256color"
 
 # Function for getting amount of mail in inbox for prompt
 _new_mail() {
-	if [ -n "$MAIL" ]; then
-		NEWMAIL=`cat $MAIL | grep '^Subject: ' | wc -l`
-		if [ $NEWMAIL -gt -0 ]; then
-			echo "${NEWMAIL}m "
-		fi
-	fi
+    if [ -n "$MAIL" ]; then
+        NEWMAIL=`cat $MAIL | grep '^Subject: ' | wc -l`
+        if [ $NEWMAIL -gt -0 ]; then
+            echo "${NEWMAIL}m "
+        fi
+    fi
 }
 
 # Make a directory and move to it
