@@ -9,8 +9,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
