@@ -1,4 +1,5 @@
 set nocompatible            " do not be vi when config loaded on command line
+scriptencoding utf-8        " for the funky chars we will load
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -7,18 +8,27 @@ call vundle#begin()
 " PLUGINS
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'EinfachToll/DidYouMean'
 Plugin 'henrik/vim-indexed-search'
+Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()
+
+" grab default glob matching
+runtime macros/matchit.vim
 
 " SETTINGS
 syntax enable               " enable syntax processing
 filetype plugin indent on   " load filetype-specific plugin and indent files
+set encoding=utf-8          " this is the modern era
 set background=dark         " dark backgroud for the eyes
 set tabstop=4               " number of visual spaces per TAB
 set softtabstop=4           " number of spaces in tab when editing
@@ -43,6 +53,7 @@ set foldmethod=syntax       " syntax is used to specify folds
 set mouse=a                 " full mouse support
 set autoindent              " auto-indent after return
 set autoread                " auto-reload file after changes
+set autowrite               " automatically save before commands like :next and :make
 set scrolloff=5             " always keep lines around the cursor
 set sidescrolloff=7
 set sidescroll=1
@@ -66,6 +77,17 @@ let mapleader = ","         " leader key is comma
 " solarized
 let g:solarized_termcolors=256  " for compatability with everything
 colorscheme solarized
+
+" undotree
+nnoremap <F5> :UndotreeToggle<CR>
+
+" matchtag
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'php' : 1,
+    \}
 
 " REMAPS
 " for shift fumbles
