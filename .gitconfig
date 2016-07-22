@@ -1,0 +1,78 @@
+[user]
+    name = Mark Vander Stel
+    email = mvndrstl@gmail.com
+
+[color]
+    ui = true
+
+[alias]
+    commit-amend = commit --verbose --amend --reset-author
+    authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
+    br = branch -vv
+    bra = branch --all -vv
+    c = commit --verbose
+    ca = commit --verbose --all
+    clear = reset --hard
+    conflicts = diff --name-only --diff-filter=U --relative
+    co = checkout
+    cob = checkout -b
+    cop = checkout -p
+    cot = checkout -t
+    cp = cherry-pick
+    diff-head = diff HEAD
+    diff-staged = diff --staged
+    ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+    lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+    s = status --short --branch
+    sh = stash
+    sha = stash apply
+    shd = stash drop
+    shl = stash list
+    shp = stash pop
+    shs = stash show -p
+    sw = show --format=fuller
+    sf = show --pretty="format:" --name-status
+    tags = tag --list -n1
+    undo = reset --soft HEAD^
+
+[core]
+    ; Whitespace problems that git should recognize.
+    whitespace = trailing-space,space-before-tab
+    ; Used pager.
+    pager = less -iFRXS -x4
+    ; Used editor.
+    editor = vim
+
+[diff]
+    ; Allow `git diff` to do basic rename and copy detection.
+    renames = copies
+
+[fetch]
+    ; Automatically prune during `git fetch`.
+    prune = true
+
+[push]
+    ; `git push` without any refspec will push the current branch out to the
+    ; same name at the remote repository only when it is set to track the
+    ; branch with the same name over there.
+    default = simple
+
+[status]
+    ; Use a submodule-aware status.
+    submoduleSummary = true
+
+[merge]
+    ; The used merge tool.
+    tool = vimdiff
+
+[sendemail]
+    ; Review and edit each patch before sending.
+    annotate = true
+    ; Always confirm before sending.
+    confirm = always
+    ; Don't send every patch as a reply to the previous patch.
+    chainreplyto = false
+
+[credential]
+    ; Enable password cache for http/https and make it timeout after 1 hour.
+    helper = cache --timeout=3600
