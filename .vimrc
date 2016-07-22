@@ -7,11 +7,13 @@ call vundle#begin()
 
 " PLUGINS
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'EinfachToll/DidYouMean'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'mbbill/undotree'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-endwise'
