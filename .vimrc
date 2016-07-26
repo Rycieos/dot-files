@@ -1,7 +1,7 @@
 set nocompatible            " do not be vi when config loaded on command line
 scriptencoding utf-8        " for the funky chars we will load
 
-"set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -94,7 +94,7 @@ let g:mta_filetypes = {
 " REMAPS
 " for shift fumbles
 nnoremap :Q! :q!
-nnoremap :Q :q 
+nnoremap :Q :q
 nnoremap :X :x
 nnoremap :W :w
 
@@ -122,6 +122,8 @@ nnoremap <leader>/ :let @/ = ""<CR>
 " used with a count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+"noremap <silent> <expr> <DOWN> (v:count == 0 ? 'gj' : 'j')
+"noremap <silent> <expr> <UP> (v:count == 0 ? 'gk' : 'k')
 
 " stay in visual mode when indenting.
 vnoremap < <gv
