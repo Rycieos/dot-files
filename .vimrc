@@ -31,7 +31,7 @@ runtime macros/matchit.vim
 syntax enable               " enable syntax processing
 filetype plugin indent on   " load filetype-specific plugin and indent files
 set encoding=utf-8          " this is the modern era
-set background=dark         " dark backgroud for the eyes
+set background=dark         " dark background for the eyes
 set tabstop=4               " number of visual spaces per TAB
 set softtabstop=4           " number of spaces in tab when editing
 set shiftwidth=4            " when indenting with '>', use 4 spaces width
@@ -40,11 +40,11 @@ set number                  " show line numbers
 set relativenumber          " show other lines as relative from current
 set cursorline              " highlight current line
 set lazyredraw              " redraw only when we need to
-set ignorecase              " case-insentive search by default
+set ignorecase              " case-insensitive search by default
 set smartcase               " search case-sensitive if there is an upper-case
 set gdefault                " when replacing, use /g by default
 set showmatch               " highlight matching [{()}]
-set showcmd                 " show incomplete cmds down the bottom
+set showcmd                 " show incomplete commands down the bottom
 set showmode                " show current mode down the bottom
 set incsearch               " search as characters are entered
 set hlsearch                " highlight matches
@@ -62,26 +62,27 @@ set sidescroll=1
 set virtualedit=block       " let cursor move past the last char in visual mode
 set matchpairs+=<:>         " show more matching characters
 set colorcolumn=+1          " mark the ideal max text width
-set formatoptions-=o        " dont continue comments when pushing o/O
-set wildmenu                " visual autocomplete for command menu
-set wildmode=list:longest   " make cmdline tab completion similar to bash
+set formatoptions-=o        " don't continue comments when pushing o/O
+set wildmenu                " visual auto complete for command menu
+set wildmode=list:longest   " make command line tab completion similar to bash
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
+set spelllang=en_us         " language for spell check
 set undofile                " persistent undo across sessions
 set undodir=~/.vim/undo                 " dir must exist to work
 set directory=~/.vim/swap//             " set common swap file dir
 set clipboard=unnamed                   " all operations work with the clipboard
 set backspace=indent,eol,start          " make backspace work over anything
-set list listchars=trail:·,tab:»·       " render tabs and trailing spaces
+set list listchars=tab:»·,trail:·       " render tabs and trailing spaces
 
 let mapleader = ","         " leader key is comma
 
 " PLUGIN CONFIG
 " solarized
-let g:solarized_termcolors=256  " for compatability with everything
+let g:solarized_termcolors=256  " for compatibility with everything
 colorscheme solarized
 
 " undotree
-nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <silent> <F5> :UndotreeToggle<CR>
 
 " matchtag
 let g:mta_filetypes = {
@@ -91,7 +92,42 @@ let g:mta_filetypes = {
     \ 'php' : 1,
     \}
 
+" spell check
+function Spell()
+    if &spell
+        setlocal nospell
+    else
+        setlocal spell
+    endif
+endfunction
+
+" for when we need to edit a file with tabs
+function Tabs ()
+    if &expandtab
+        setlocal listchars=tab:\ \ ,trail:·
+        setlocal noexpandtab
+    else
+        setlocal listchars=tab:»·,trail:·
+        setlocal expandtab
+    endif
+endfunction
+
 " REMAPS
+" exit
+nnoremap <silent> <F4> :quit<CR>
+
+" reload
+nnoremap <silent> <F5> :edit<CR>
+
+" command
+nnoremap <F6> :
+
+" spell check
+nnoremap <silent> <F7> :call Spell()<CR>
+
+" toggle tabs
+nnoremap <silent> <F8> :call Tabs()<CR>
+
 " for shift fumbles
 nnoremap :Q! :q!
 nnoremap :Q :q
@@ -111,12 +147,12 @@ nnoremap <Space> za
 " when jumping to a given line, center the screen
 nnoremap G Gzz
 
-" switch higlight
-nnoremap <leader><Space> :set hls!<CR>
+" switch highlight
+nnoremap <silent> <leader><Space> :set hls!<CR>
 " / highlights then enter search mode
 nnoremap / :set hlsearch <CR>/
 " clear search
-nnoremap <leader>/ :let @/ = ""<CR>
+nnoremap <silent> <leader>/ :let @/ = ""<CR>
 
 " move by virtual lines when used without a count, and by physical lines when
 " used with a count
