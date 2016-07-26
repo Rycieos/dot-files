@@ -21,6 +21,7 @@
     cp = cherry-pick
     diff-head = diff HEAD
     diff-staged = diff --staged
+    dt = difftool
     ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     s = status --short --branch
@@ -46,6 +47,7 @@
 [diff]
     ; Allow `git diff` to do basic rename and copy detection.
     renames = copies
+    tool = vimdiff
 
 [fetch]
     ; Automatically prune during `git fetch`.
@@ -76,3 +78,5 @@
 [credential]
     ; Enable password cache for http/https and make it timeout after 1 hour.
     helper = cache --timeout=3600
+[difftool]
+    prompt = false

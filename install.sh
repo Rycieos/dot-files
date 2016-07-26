@@ -2,6 +2,7 @@
 
 ln -f ./.bashrc ~/.bashrc
 ln -f ./.vimrc ~/.vimrc
+ln -f ./.gitconfig ~/.gitconfig
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/undo
 mkdir -p ~/.vim/swap

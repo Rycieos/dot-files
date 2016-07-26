@@ -48,7 +48,7 @@ set foldmethod=syntax       " syntax is used to specify folds
 set foldnestmax=10          " 10 nested fold max
 set formatoptions-=o        " don't continue comments when pushing o/O
 set gdefault                " when replacing, use /g by default
-set hidden                  " Make a buffer hidden when editing another one
+set hidden                  " make a buffer hidden when editing another one
 set hlsearch                " highlight matches
 set ignorecase              " case-insensitive search by default
 set incsearch               " search as characters are entered
