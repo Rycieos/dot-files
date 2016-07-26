@@ -31,49 +31,52 @@ runtime macros/matchit.vim
 " SETTINGS
 syntax enable               " enable syntax processing
 filetype plugin indent on   " load filetype-specific plugin and indent files
-set encoding=utf-8          " this is the modern era
-set background=dark         " dark background for the eyes
-set tabstop=4               " number of visual spaces per TAB
-set softtabstop=4           " number of spaces in tab when editing
-set shiftwidth=4            " when indenting with '>', use 4 spaces width
-set expandtab               " tabs are spaces
-set number                  " show line numbers
-set relativenumber          " show other lines as relative from current
-set cursorline              " highlight current line
-set lazyredraw              " redraw only when we need to
-set ignorecase              " case-insensitive search by default
-set smartcase               " search case-sensitive if there is an upper-case
-set gdefault                " when replacing, use /g by default
-set showmatch               " highlight matching [{()}]
-set showcmd                 " show incomplete commands down the bottom
-set showmode                " show current mode down the bottom
-set incsearch               " search as characters are entered
-set hlsearch                " highlight matches
-set foldenable              " enable folding
-set foldlevelstart=10       " open most folds by default
-set foldnestmax=10          " 10 nested fold max
-set foldmethod=syntax       " syntax is used to specify folds
-set mouse=a                 " full mouse support
 set autoindent              " auto-indent after return
 set autoread                " auto-reload file after changes
-set autowrite               " automatically save before commands like :next and :make
-set scrolloff=5             " always keep lines around the cursor
-set sidescrolloff=7
-set sidescroll=1
-set virtualedit=block       " let cursor move past the last char in visual mode
-set matchpairs+=<:>         " show more matching characters
+set autowrite               " automatically save on buffer closing commands
+set background=dark         " dark background for the eyes
+set backspace=2             " make backspace work over anything
+set clipboard=unnamed       " all operations work with the clipboard
 set colorcolumn=+1          " mark the ideal max text width
+set cursorline              " highlight current line
+set directory=~/.vim/swap// " set common swap file dir
+set encoding=utf-8          " this is the modern era
+set expandtab               " tabs are spaces
+set foldenable              " enable folding
+set foldlevelstart=10       " open most folds by default
+set foldmethod=syntax       " syntax is used to specify folds
+set foldnestmax=10          " 10 nested fold max
 set formatoptions-=o        " don't continue comments when pushing o/O
+set gdefault                " when replacing, use /g by default
+set hidden                  " Make a buffer hidden when editing another one
+set hlsearch                " highlight matches
+set ignorecase              " case-insensitive search by default
+set incsearch               " search as characters are entered
+set lazyredraw              " redraw only when we need to
+set lcs=tab:»·,trail:·      " render tabs and trailing spaces
+set list                    " render special chars
+set matchpairs+=<:>         " show more matching characters
+set mouse=a                 " full mouse support
+set number                  " show line numbers
+set relativenumber          " show other lines as relative from current
+set ruler                   " show the cursor position all the time
+set scrolloff=5             " always keep lines around the cursor vertically
+set shiftwidth=4            " when indenting with '>', use 4 spaces width
+set showcmd                 " show incomplete commands down the bottom
+set showmatch               " highlight matching [{()}]
+set showmode                " show current mode down the bottom
+set sidescrolloff=7         " always keep lines around the cursor horizontally
+set sidescroll=1            " how quickly to move the screen sideways
+set smartcase               " search case-sensitive if there is an upper-case
+set softtabstop=4           " number of spaces in tab when editing
+set spelllang=en_us         " language for spell check
+set tabstop=4               " number of visual spaces per TAB
+set undofile                " persistent undo across sessions
+set undodir=~/.vim/undo     " dir must exist to work
+set virtualedit=block       " let cursor move past the last char in visual mode
+set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildmenu                " visual auto complete for command menu
 set wildmode=list:longest   " make command line tab completion similar to bash
-set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
-set spelllang=en_us         " language for spell check
-set undofile                " persistent undo across sessions
-set undodir=~/.vim/undo                 " dir must exist to work
-set directory=~/.vim/swap//             " set common swap file dir
-set clipboard=unnamed                   " all operations work with the clipboard
-set backspace=indent,eol,start          " make backspace work over anything
-set list listchars=tab:»·,trail:·       " render tabs and trailing spaces
 
 let mapleader = ","         " leader key is comma
 
@@ -83,7 +86,7 @@ let g:solarized_termcolors=256  " for compatibility with everything
 colorscheme solarized
 
 " undotree
-nnoremap <silent> <F5> :UndotreeToggle<CR>
+nnoremap <silent> <F3> :UndotreeToggle<CR>
 
 " matchtag
 let g:mta_filetypes = {
