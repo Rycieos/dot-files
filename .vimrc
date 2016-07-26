@@ -40,6 +40,7 @@ set clipboard=unnamed       " all operations work with the clipboard
 set colorcolumn=+1          " mark the ideal max text width
 set cursorline              " highlight current line
 set directory=~/.vim/swap// " set common swap file dir
+set display=lastline        " as much as possible of the last line will be shown
 set encoding=utf-8          " this is the modern era
 set expandtab               " tabs are spaces
 set foldenable              " enable folding
@@ -58,6 +59,7 @@ set list                    " render special chars
 set matchpairs+=<:>         " show more matching characters
 set mouse=a                 " full mouse support
 set number                  " show line numbers
+set pastetoggle=<F11>       " allow for paste mode toggle
 set relativenumber          " show other lines as relative from current
 set ruler                   " show the cursor position all the time
 set scrolloff=5             " always keep lines around the cursor vertically
@@ -68,6 +70,7 @@ set showmode                " show current mode down the bottom
 set sidescrolloff=7         " always keep lines around the cursor horizontally
 set sidescroll=1            " how quickly to move the screen sideways
 set smartcase               " search case-sensitive if there is an upper-case
+set smartindent             " do smart autoindenting when starting a new line
 set softtabstop=4           " number of spaces in tab when editing
 set spelllang=en_us         " language for spell check
 set tabstop=4               " number of visual spaces per TAB
