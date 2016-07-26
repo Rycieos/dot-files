@@ -11,6 +11,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'EinfachToll/DidYouMean'
+Plugin 'ervandew/supertab'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'mbbill/undotree'
 Plugin 'pangloss/vim-javascript'
@@ -91,6 +92,10 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'php' : 1,
     \}
+
+" supertab | I get their point, but down makes more sense
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " spell check
 function Spell()
