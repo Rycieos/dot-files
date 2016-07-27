@@ -19,11 +19,14 @@ elif hash svn 2>/dev/null; then
     rm -rf ./*
     # Use pathogen because it is simple
     svn co https://github.com/tpope/vim-pathogen.git/trunk vim-pathogen
-    plugins=$(grep "^Plugin '" .vimrc | sed "s/^Plugin '//g; s/'$//g")
+    plugins=$(grep "^Plugin '" ~/.vimrc | sed "s/^Plugin '//g; s/'$//g")
 
     for plugin in "${plugins[@]}"; do
         svn co "https://github.com/${plugin}.git/trunk" "${plugin}"
     done
+
+    # Edit .vimrc to work without Vundle
+    sed -i.bak "|^Plugin '*'$|dg; |^set rtp+=~/.vim/bundle/Vundle.vim$|d; |^call vundle#end()$|d; s|vundle#begin|pathogen#infect|" ~/.vimrc
 
     # Don't need this stuff, since we can't update
     rm */README* */Makefile */CONTRIBUTING* */LICENSE* */.travis*
