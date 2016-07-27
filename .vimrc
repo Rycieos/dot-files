@@ -76,6 +76,7 @@ set spelllang=en_us         " language for spell check
 set tabstop=4               " number of visual spaces per TAB
 set undofile                " persistent undo across sessions
 set undodir=~/.vim/undo     " dir must exist to work
+set vi+=n~/.vim/viminfo     " put the viminfo file not in home dir
 set virtualedit=block       " let cursor move past the last char in visual mode
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildmenu                " visual auto complete for command menu
