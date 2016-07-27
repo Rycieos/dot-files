@@ -20,7 +20,7 @@ elif hash svn 2>/dev/null; then
     rm -rf ./*
     # Use pathogen because it is simple
     svn co https://github.com/tpope/vim-pathogen.git/trunk vim-pathogen
-    plugins="$(grep "^Plugin '" ~/.vimrc | grep -v "Vundle" | sed "s/^Plugin '//g; s/'$//g")"
+    plugins="$(grep "^Plugin '" ~/.vimrc | grep -v "Vundle" | grep -v "git" | sed "s/^Plugin '//g; s/'$//g")"
 
     for plugin in ${plugins}; do
         echo "Installing $plugin"
