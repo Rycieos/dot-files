@@ -50,7 +50,7 @@ hash setterm 2>/dev/null && setterm -bfreq 0
 export LESS="-FX -R"
 
 # Alias
-which -i which >/dev/null 2>&1 && alias which='alias | /usr/bin/which -i --tty-only --show-dot --show-tilde'
+echo "" | which -i which >/dev/null 2>&1 && alias which='alias | /usr/bin/which -i --tty-only --show-dot --show-tilde'
 alias realias='vim ~/.bashrc; source ~/.bashrc'
 alias ls='ls --color'
 alias ll='ls --color -lAh'
