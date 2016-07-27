@@ -14,7 +14,6 @@ Plugin 'EinfachToll/DidYouMean'
 Plugin 'ervandew/supertab'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'mbbill/undotree'
-Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-endwise'
@@ -170,8 +169,8 @@ nnoremap <silent> <leader>/ :let @/ = ""<CR>
 " used with a count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-"noremap <silent> <expr> <DOWN> (v:count == 0 ? 'gj' : 'j')
-"noremap <silent> <expr> <UP> (v:count == 0 ? 'gk' : 'k')
+noremap <silent> <expr> <DOWN> (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> <UP> (v:count == 0 ? 'gk' : 'k')
 
 " stay in visual mode when indenting.
 vnoremap < <gv
