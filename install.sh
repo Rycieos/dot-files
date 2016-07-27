@@ -11,8 +11,13 @@ if hash git 2>/dev/null; then
     ln -f ./.vimrc ~/.vimrc
     ln -f ./.gitconfig ~/.gitconfig
     # Use Vundle because it uses git and is easy
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    # Test if we have installed before
+    if [ -d ~/.vim/bundle/Vundle.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        vim +PluginInstall +qall
+    else
+        vim +PluginUpdate +qall
+    fi
 elif hash svn 2>/dev/null; then
     cp -f ./.vimrc ~/.vimrc
     cd ~/.vim/bundle
