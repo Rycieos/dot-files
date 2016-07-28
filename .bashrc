@@ -27,8 +27,8 @@ function md() {
 
 function dirdo() {
     for D in */; do
-        cd "$D"
-        pwd
+        cd "$D" 2>/dev/null || { echo "No subdirectories in this directory!"; return 1; }
+        echo "$D"
         for var in "$@"; do
             $var
         done
