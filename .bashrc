@@ -25,6 +25,17 @@ function md() {
     cd $1
 }
 
+function dirdo() {
+    for D in */; do
+        cd "$D"
+        pwd
+        for var in "$@"; do
+            $var
+        done
+        cd ..
+    done
+}
+
 # Use the system config if it exists
 [[ -r /etc/bashrc            ]] && . /etc/bashrc
 [[ -r /etc/bash.bashrc       ]] && . /etc/bash.bashrc
