@@ -167,10 +167,6 @@ nnoremap <Space> za
 " when jumping to a given line, center the screen
 nnoremap G Gzz
 
-" switch highlight
-nnoremap <silent> <leader><Space> :set hls!<CR>
-" / highlights then enter search mode
-nnoremap / :set hlsearch <CR>/
 " clear search
 nnoremap <silent> <leader>/ :let @/ = ""<CR>
 
