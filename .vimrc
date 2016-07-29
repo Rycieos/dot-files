@@ -13,6 +13,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'EinfachToll/DidYouMean'
 Plugin 'ervandew/supertab'
 Plugin 'henrik/vim-indexed-search'
+Plugin 'kopischke/vim-stay'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-characterize'
@@ -28,6 +29,7 @@ call vundle#end()
 runtime macros/matchit.vim
 
 " SETTINGS
+" http://vimdoc.sourceforge.net/htmldoc/options.html
 syntax enable               " enable syntax processing
 filetype plugin indent on   " load filetype-specific plugin and indent files
 set autoindent              " auto-indent after return
@@ -76,6 +78,7 @@ set tabstop=4               " number of visual spaces per TAB
 set undofile                " persistent undo across sessions
 set undodir=~/.vim/undo     " dir must exist to work
 set vi+=n~/.vim/viminfo     " put the viminfo file not in home dir
+set vop=cursor,folds,slash,unix     " save meta data with :mkview
 set virtualedit=block       " let cursor move past the last char in visual mode
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildmenu                " visual auto complete for command menu
