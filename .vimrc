@@ -84,6 +84,12 @@ set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildmenu                " visual auto complete for command menu
 set wildmode=list:longest   " make command line tab completion similar to bash
 
+if has("mouse_sgr")         " fixes not being able to click on parts of screen
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
 let mapleader = ","         " leader key is comma
 
 " PLUGIN CONFIG
