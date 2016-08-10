@@ -148,6 +148,9 @@ nnoremap <silent> <F7> :call Spell()<CR>
 " toggle tabs
 nnoremap <silent> <F8> :call Tabs()<CR>
 
+" remove all trailing whitespace by pressing F9
+nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 " for shift fumbles
 nnoremap :Q! :q!
 nnoremap :Q :q
