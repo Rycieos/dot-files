@@ -63,9 +63,9 @@ export LESS="-FX -R"
 # Alias
 echo "" | which -i which >/dev/null 2>&1 && alias which='alias | /usr/bin/which -i --tty-only --show-dot --show-tilde'
 alias realias='vim ~/.bashrc; source ~/.bashrc'
-alias ls='ls --color'
 alias ll='ls --color -lAh'
 alias la='ls --color -lah'
+alias ls='ls --color -lh'
 alias df='df -h'
 alias du='du -hs'
 alias dus='du -hs * | sort -h'
