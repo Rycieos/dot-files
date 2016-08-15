@@ -72,6 +72,7 @@ alias dus='du -hs * | sort -h'
 alias please='sudo $(history -p !!)'
 alias cd..='cd ..'
 alias netstat='ss -rput'
+alias dig='dig -t any +noall +answer'
 alias path='echo $PATH | tr ":" "\n"'
 
 # Load machine local config
