@@ -116,8 +116,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 function Spell()
     if &spell
         setlocal nospell
+        echo "Spell checking off"
     else
         setlocal spell
+        echo "Spell checking on"
     endif
 endfunction
 
@@ -126,9 +128,11 @@ function Tabs ()
     if &expandtab
         setlocal listchars=tab:\ \ ,trail:·
         setlocal noexpandtab
+        echo "Tabs"
     else
         setlocal listchars=tab:»·,trail:·
         setlocal expandtab
+        echo "Spaces"
     endif
 endfunction
 
@@ -149,7 +153,7 @@ nnoremap <silent> <F7> :call Spell()<CR>
 nnoremap <silent> <F8> :call Tabs()<CR>
 
 " remove all trailing whitespace by pressing F9
-nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace"<CR>
 
 " for shift fumbles
 nnoremap :Q! :q!
