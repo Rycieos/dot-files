@@ -155,6 +155,9 @@ nnoremap <silent> <F8> :call Tabs()<CR>
 " remove all trailing whitespace by pressing F9
 nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace"<CR>
 
+" highlight all lines longer than 100 chars
+nnoremap <silent> <F10> /\%>100v.\+<CR>
+
 " for shift fumbles
 nnoremap :Q! :q!
 nnoremap :Q :q
@@ -173,6 +176,9 @@ nnoremap <Space> za
 
 " when jumping to a given line, center the screen
 nnoremap G Gzz
+
+" when jumping to begining of file, enter insert mode
+nnoremap gg ggi
 
 " clear search
 nnoremap <silent> <leader>/ :let @/ = ""<CR>
