@@ -21,6 +21,6 @@ cd ~/.vim
 # Use pathogen + voom because easy
 [ -e autoload/pathogen.vim ] || curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
 [ -e ~/bin/voom ] || curl -LSso ~/bin/voom https://raw.githubusercontent.com/Rycieos/voom/master/voom
-[ -x ~/bin/voom] || chmod +x ~/bin/voom
+[ -x ~/bin/voom ] || chmod +x ~/bin/voom
 
 ~/bin/voom
