@@ -1,29 +1,7 @@
 set nocompatible            " do not be vi when config loaded on command line
 scriptencoding utf-8        " for the funky chars we will load
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" PLUGINS
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'EinfachToll/DidYouMean'
-Plugin 'ervandew/supertab'
-Plugin 'henrik/vim-indexed-search'
-Plugin 'kopischke/vim-stay'
-Plugin 'mbbill/undotree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-characterize'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'Valloric/MatchTagAlways'
-
-call vundle#end()
+execute pathogen#infect()
 
 " grab default glob matching
 runtime macros/matchit.vim
