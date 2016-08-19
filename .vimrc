@@ -63,9 +63,9 @@ set wildmenu                " visual auto complete for command menu
 set wildmode=list:longest   " make command line tab completion similar to bash
 
 if has("mouse_sgr")         " fixes not being able to click on parts of screen
-    set ttymouse=sgr
+  set ttymouse=sgr
 else
-    set ttymouse=xterm2
+  set ttymouse=xterm2
 end
 
 let mapleader = ","         " leader key is comma
@@ -80,11 +80,11 @@ nnoremap <silent> <F3> :UndotreeToggle<CR>
 
 " matchtag
 let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'php' : 1,
-    \}
+  \ 'html' : 1,
+  \ 'xhtml' : 1,
+  \ 'xml' : 1,
+  \ 'php' : 1,
+  \}
 
 " supertab | I get their point, but down makes more sense
 let g:SuperTabDefaultCompletionType = "context"
@@ -92,27 +92,42 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " spell check
 function Spell()
-    if &spell
-        setlocal nospell
-        echo "Spell checking off"
-    else
-        setlocal spell
-        echo "Spell checking on"
-    endif
+  if &spell
+    setlocal nospell
+    echo "Spell checking off"
+  else
+    setlocal spell
+    echo "Spell checking on"
+  endif
+endfunction
+
+" set tabstop, softtabstop and shiftwidth to the same value
+command! -nargs=1 Stab call Stab(<f-args>)
+function Stab(spaces)
+  let l:tabstop = 1 * a:spaces
+  if l:tabstop > 0
+    let &l:shiftwidth=l:tabstop
+    let &l:softtabstop=l:tabstop
+    let &l:tabstop=l:tabstop
+  endif
 endfunction
 
 " for when we need to edit a file with tabs
 function Tabs ()
-    if &expandtab
-        setlocal listchars=tab:\ \ ,trail:·
-        setlocal noexpandtab
-        echo "Tabs"
-    else
-        setlocal listchars=tab:»·,trail:·
-        setlocal expandtab
-        echo "Spaces"
-    endif
+  if &expandtab
+    setlocal listchars=tab:\ \ ,trail:·
+    setlocal noexpandtab
+    echo "Tabs"
+  else
+    setlocal listchars=tab:»·,trail:·
+    setlocal expandtab
+    echo "Spaces"
+  endif
 endfunction
+
+" FILE
+au FileType gitcommit,html,markdown,php setlocal spell
+au FileType bash,vim Stab 2
 
 " REMAPS
 " exit

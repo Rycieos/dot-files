@@ -6,6 +6,7 @@ ervandew/supertab
 henrik/vim-indexed-search
 kopischke/vim-stay
 mbbill/undotree
+Raimondi/YAIFA
 scrooloose/nerdcommenter
 tpope/vim-characterize
 tpope/vim-endwise
