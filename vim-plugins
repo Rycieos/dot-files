@@ -10,6 +10,7 @@ Raimondi/YAIFA
 scrooloose/nerdcommenter
 tpope/vim-characterize
 tpope/vim-endwise
+tpope/vim-fugitive
 tpope/vim-repeat
 tpope/vim-surround
 tpope/vim-vinegar
