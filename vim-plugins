@@ -14,3 +14,4 @@ tpope/vim-repeat
 tpope/vim-surround
 tpope/vim-vinegar
 Valloric/MatchTagAlways
+wellle/targets.vim
