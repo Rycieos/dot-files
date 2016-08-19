@@ -30,7 +30,6 @@ set formatoptions-=o        " don't continue comments when pushing o/O
 set gdefault                " when replacing, use /g by default
 set hidden                  " make a buffer hidden when editing another one
 set hlsearch                " highlight matches
-set ignorecase              " case-insensitive search by default
 set incsearch               " search as characters are entered
 set lazyredraw              " redraw only when we need to
 set lcs=tab:»·,trail:·      " render tabs and trailing spaces
