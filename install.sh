@@ -12,7 +12,7 @@ if hash git 2>/dev/null; then
 fi
 
 # Use pathogen + voom because easy
-[ -e ~/.vim/autoload/pathogen.vim ] || curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+[ -e ~/.vim/autoload/pathogen.vim ] || curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/Rycieos/vim-pathogen/master/autoload/pathogen.vim
 [ -e ~/bin/voom ] || curl -LSso ~/bin/voom https://raw.githubusercontent.com/Rycieos/voom/master/voom
 [ -x ~/bin/voom ] || chmod +x ~/bin/voom
 
