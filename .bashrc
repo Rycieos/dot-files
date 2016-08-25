@@ -83,3 +83,4 @@ fi
 
 # Load machine local config
 [[ -r ~/.bash_local ]] && source ~/.bash_local
+true
