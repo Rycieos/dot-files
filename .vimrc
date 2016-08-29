@@ -127,7 +127,8 @@ endfunction
 
 " FILE
 au FileType gitcommit,html,markdown,php setlocal spell
-au FileType bash,vim Stab 2
+au FileType bash,vim,sh Stab 2
+au FileType bash,sh set makeprg=shellcheck\ -xf\ gcc\ %
 
 " REMAPS
 " exit
@@ -145,11 +146,14 @@ nnoremap <silent> <F7> :call Spell()<CR>
 " toggle tabs
 nnoremap <silent> <F8> :call Tabs()<CR>
 
-" remove all trailing whitespace by pressing F9
-nnoremap <silent> <F9> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace"<CR>
+" make
+nnoremap <silent> <F9> :make<CR>
 
 " highlight all lines longer than 100 chars
 nnoremap <silent> <F10> /\%>100v.\+<CR>
+
+" remove all trailing whitespace
+nnoremap <silent> <F11> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace"<CR>
 
 " for shift fumbles
 nnoremap :Q! :q!

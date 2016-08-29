@@ -21,7 +21,7 @@ _new_mail() {
 
 # Make a directory and move to it
 function md() {
-    mkdir "$1"
+    mkdir "$1" || return
     cd "$1"
 }
 
