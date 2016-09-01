@@ -128,7 +128,8 @@ endfunction
 " FILE
 au FileType gitcommit,html,markdown,php setlocal spell
 au FileType bash,vim,sh Stab 2
-au FileType bash,sh set makeprg=shellcheck\ -xf\ gcc\ %
+au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ %
+au FileType python setlocal makeprg=./%
 
 " REMAPS
 " exit
@@ -137,8 +138,8 @@ nnoremap <silent> <F4> :quit<CR>
 " reload
 nnoremap <silent> <F5> :edit<CR>
 
-" command
-nnoremap <F6> :
+" run file
+nnoremap <silent> <F6> :!./%<CR>
 
 " spell check
 nnoremap <silent> <F7> :call Spell()<CR>
