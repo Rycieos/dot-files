@@ -21,7 +21,7 @@ _new_mail() {
 
 # Make a directory and move to it
 function md() {
-    mkdir "$1" || return
+    mkdir "$1" || return $?
     cd "$1"
 }
 
@@ -34,6 +34,15 @@ function dirdo() {
     done
     cd ..
   done
+}
+
+function find_modified() {
+  if [ -z "$1" ]; then
+    echo "Specify time difference"
+    echo "Ex: '-1 hour'"
+    return 1
+  fi
+  sudo find / -not \( -path /dev -prune \) -not \( -path /var/www/maps -prune \) -not \( -path /proc -prune \) -not \( -path /sys -prune \) -newermt "$(date -d "$1")" || return $?
 }
 
 # Use the system config if it exists
