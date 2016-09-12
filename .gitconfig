@@ -22,6 +22,7 @@
     diff-head = diff HEAD
     diff-staged = diff --staged
     dt = difftool
+    exec = "!exec "
     ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     s = status --short --branch
