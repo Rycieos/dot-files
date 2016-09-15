@@ -151,10 +151,19 @@ nnoremap <silent> <F8> :call Tabs()<CR>
 nnoremap <silent> <F9> :make<CR>
 
 " highlight all lines longer than 100 chars
-nnoremap <silent> <F10> /\%>100v.\+<CR>
+nnoremap <silent> <F10> /\%>80v.\+<CR>
+
+" limelight
+nnoremap <silent> <F11> :Limelight!! 0.5<CR>
 
 " remove all trailing whitespace
-nnoremap <silent> <F11> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace"<CR>
+command! TrimWhitespace call TrimWhitespace()
+function TrimWhitespace()
+  let _s=@/
+  %s/\s\+$//e
+  let @/=_s
+  echo "Trimmed trailing whitespace"
+endfunction
 
 " for shift fumbles
 nnoremap :Q! :q!

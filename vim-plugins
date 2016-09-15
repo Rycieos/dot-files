@@ -4,6 +4,7 @@ AndrewRadev/splitjoin.vim
 EinfachToll/DidYouMean
 ervandew/supertab
 henrik/vim-indexed-search
+junegunn/limelight.vim
 kopischke/vim-stay
 mbbill/undotree
 Raimondi/YAIFA
