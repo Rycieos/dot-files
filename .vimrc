@@ -15,7 +15,7 @@ set autoread                " auto-reload file after changes
 set autowrite               " automatically save on buffer closing commands
 set background=dark         " dark background for the eyes
 set backspace=2             " make backspace work over anything
-set clipboard=unnamed       " all operations work with the clipboard
+set clipboard=exclude:.*    " all operations work with the clipboard
 set colorcolumn=+1          " mark the ideal max text width
 set cursorline              " highlight current line
 set directory=~/.vim/swap// " set common swap file dir
