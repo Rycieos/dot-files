@@ -39,6 +39,7 @@ set matchpairs+=<:>         " show more matching characters
 set mouse=a                 " full mouse support
 set number                  " show line numbers
 set pastetoggle=<F11>       " allow for paste mode toggle
+set path+=**                " allow file searching in whole subtree
 set relativenumber          " show other lines as relative from current
 set ruler                   " show the cursor position all the time
 set scrolloff=5             " always keep lines around the cursor vertically

@@ -1,0 +1,29 @@
+" Joining lines
+gS                  Split a one-liner into multiple lines
+gJ                  (on first block line) Join a block into single-line
+
+" Comments
+<leader>c<space>    Toggles comment state of line
+<leader>cA          Add comment to end of line
+<leader>cm          Comment out lines with one set of delimiters
+<leader>cs          Comment out lines with pretty block format
+<leader>ca          Switch to alternative set of comment delimiters
+
+" Groups
+cs[old][new]        replace surrounding old with new
+ds[old]             delete surrounding characters
+ys[object][new]     surround text object with characters
+
+
+" Git
+]c                  jump to next changed hunk
+[c                  jump to previous changed hunk
+<leader>hs          stage changed hunk
+<leader>hu          undo stage
+<leader>hp          preview hunk changes
+:Gstatus            git status
+:Gblame             show side buffer git blame
+:Gmove              does git move and renames buffer
+
+" Characters
+ga                  show character code

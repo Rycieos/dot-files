@@ -7,7 +7,6 @@ henrik/vim-indexed-search
 junegunn/limelight.vim
 kopischke/vim-stay
 mbbill/undotree
-Raimondi/YAIFA
 scrooloose/nerdcommenter
 tpope/vim-characterize
 tpope/vim-endwise
