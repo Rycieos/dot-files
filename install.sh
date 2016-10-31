@@ -1,15 +1,20 @@
 #!/bin/bash
 
-mkdir -p ~/bin ~/.vim
-ln -f ./.bashrc ~/.bashrc
-ln -f ./.vimrc ~/.vimrc
-ln -f ./vim-plugins ~/.vim/plugins
-mkdir -p ~/.vim/{autoload,bundle,swap,undo}
+cd "$(dirname "$0")"
+dir="$(pwd)"
 
-# Test for VCS
-if hash git 2>/dev/null; then
-    ln -f ./.gitconfig ~/.gitconfig
-fi
+mkdir -p ~/bin ~/.vim/{autoload,bundle,swap,undo}
+ln -fs "${dir}"/.bashrc ~/.bashrc
+ln -fs "${dir}"/.config/* ~/.config/
+ln -fs "${dir}"/.vim/* ~/.vim/
+
+# Cleanup stale symlinks
+for i in ~/.*; do
+  if [ -h "$i" ] && [ ! -f "$i" ]; then
+    echo "Deleting stale link: $i"
+    rm $i
+  fi
+done
 
 # Use pathogen + voom because easy
 [ -e ~/.vim/autoload/pathogen.vim ] || curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/Rycieos/vim-pathogen/master/autoload/pathogen.vim
