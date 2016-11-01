@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 dir="$(pwd)"
 
-mkdir -p ~/bin ~/.vim/{autoload,bundle,swap,undo}
+mkdir -p ~/bin ~/.config ~/.vim/{autoload,bundle,swap,undo}
 ln -fs "${dir}"/.bashrc ~/.bashrc
 ln -fs "${dir}"/.config/* ~/.config/
 ln -fs "${dir}"/.vim/* ~/.vim/
