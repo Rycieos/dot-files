@@ -1,5 +1,6 @@
 set nocompatible            " do not be vi when config loaded on command line
 scriptencoding utf-8        " for the funky chars we will load
+runtime bundle/vim-pathogen/autoload/pathogen.vim   " include pathogen
 
 execute pathogen#infect()
 

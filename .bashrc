@@ -52,7 +52,7 @@ function find_modified() {
 # Basic PS1 in case liquidprompt does not load
 export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
 
-[[ -r /usr/local/bin/liquidprompt/liquidprompt ]] && source /usr/local/bin/liquidprompt/liquidprompt
+[[ -r ~/bin/liquidprompt     ]] && . ~/bin/liquidprompt
 [[ -r /etc/bash_completion   ]] && . /etc/bash_completion
 [[ -d /etc/bash_completion.d ]] && . /etc/bash_completion.d/*
 [[ -r ~/.alias               ]] && . ~/.alias
@@ -91,5 +91,5 @@ else
 fi
 
 # Load machine local config
-[[ -r ~/.bash_local ]] && source ~/.bash_local
+[[ -r ~/.bash_local ]] && . ~/.bash_local
 true
