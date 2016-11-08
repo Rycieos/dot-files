@@ -9,6 +9,13 @@ export TERM="xterm-256color"
 # The following lines are only for interactive shells
 [[ $- = *i* ]] || return
 
+# Run our updater
+# Put in function so the job end message is nice
+update_profile() {
+  [[ -x ~/bin/update ]] && ~/bin/update
+}
+update_profile &
+
 # Function for getting amount of mail in inbox for prompt
 _new_mail() {
   if [ -r "$MAIL" ]; then
