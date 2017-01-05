@@ -32,6 +32,7 @@ function md() {
     cd "$1"
 }
 
+# Run commands in each subdirectory
 function dirdo() {
   for D in */; do
     cd "$D" 2>/dev/null || { echo "No subdirectories in this directory!"; return 1; }
@@ -43,6 +44,7 @@ function dirdo() {
   done
 }
 
+# Find file system changes since time specified
 function find_modified() {
   if [ -z "$1" ]; then
     echo "Specify time difference"
@@ -50,6 +52,13 @@ function find_modified() {
     return 1
   fi
   sudo find / -not \( -path /dev -prune \) -not \( -path /var/www/maps -prune \) -not \( -path /proc -prune \) -not \( -path /sys -prune \) -newermt "$(date -d "$1")" || return $?
+}
+
+# List file extensions in the given directory
+function list_types() {
+  find "$1" -mindepth 1 -type f |
+    awk -F . '{print $NF}' | sort |
+    uniq -c | sort -nr
 }
 
 # Use the system config if it exists
@@ -67,6 +76,22 @@ export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
 # Enable auto-complete after sudo and man
 complete -cf sudo
 complete -cf man
+
+# Shell options
+shopt -s cmdhist                  # save multi-line as one line
+shopt -s dirspell                 # fix spelling error on tab if doesn't exist
+shopt -s histappend               # append to history file
+shopt -s no_empty_cmd_completion  # don't complete when on empty line
+
+# cd options
+CDPATH=".:~:~/dev"                # cd relative dirs
+
+# History options
+HISTSIZE=10000                                        # larger history size
+HISTFILESIZE=10000
+HISTCONTROL="erasedups:ignoreboth"                    # avoid duplicates
+HISTTIMEFORMAT='%F %T '                               # timestamp entries
+export HISTIGNORE="&:[ ]*:exit:bg:fg:history:clear"   # Ignore some commands
 
 # Disable terminal bell
 # Many machines don't have setterm

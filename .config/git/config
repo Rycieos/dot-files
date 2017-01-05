@@ -81,3 +81,5 @@
     helper = cache --timeout=3600
 [difftool]
     prompt = false
+[github]
+    user = Rycieos
