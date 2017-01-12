@@ -4,6 +4,14 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim   " include pathogen
 
 execute pathogen#infect()
 
+" setup our dirs for storing things
+if !isdirectory($HOME."/.vim/swap")
+  silent call mkdir($HOME."/.vim/swap", "p")
+endif
+if !isdirectory($HOME."/.vim/undo")
+  silent call mkdir($HOME."/.vim/undo", "p")
+endif
+
 " grab default glob matching
 runtime macros/matchit.vim
 
