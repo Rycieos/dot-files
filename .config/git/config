@@ -8,10 +8,7 @@
 [alias]
     commit-amend = commit --verbose --amend --reset-author
     authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
-    br = branch -vv
-    bra = branch --all -vv
     c = commit --verbose
-    ca = commit --verbose --all
     clear = reset --hard
     conflicts = diff --name-only --diff-filter=U --relative
     co = checkout
@@ -20,8 +17,9 @@
     cot = checkout -t
     cp = cherry-pick
     diff-head = diff HEAD
+    diffh = diff HEAD
     diff-staged = diff --staged
-    dt = difftool
+    diffs = diff --staged
     exec = "!exec "
     ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
@@ -44,6 +42,8 @@
     pager = less -iFRXS -x4
     ; Used editor.
     editor = vim
+    ; Convert CRLF to LF on commits
+    autocrlf = input
 
 [diff]
     ; Allow `git diff` to do basic rename and copy detection.
@@ -53,6 +53,10 @@
 [fetch]
     ; Automatically prune during `git fetch`.
     prune = true
+
+[pull]
+    ; pull by rebase if possible, and don't squash any other merges either
+    rebase = preserve
 
 [push]
     ; `git push` without any refspec will push the current branch out to the
@@ -79,7 +83,9 @@
 [credential]
     ; Enable password cache for http/https and make it timeout after 1 hour.
     helper = cache --timeout=3600
+
 [difftool]
     prompt = false
+
 [github]
     user = Rycieos
