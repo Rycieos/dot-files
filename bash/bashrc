@@ -12,7 +12,7 @@ export TERM="xterm-256color"
 # Run our updater
 # Put in function so the job end message is nice
 update_profile() {
-  [[ -x ~/bin/update ]] && ~/bin/update
+  [[ -x ~/bin/profile-manager ]] && ~/bin/profile-manager -q
 }
 update_profile &
 
