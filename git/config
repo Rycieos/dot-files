@@ -54,10 +54,6 @@
     ; Automatically prune during `git fetch`.
     prune = true
 
-[pull]
-    ; pull by rebase if possible, and don't squash any other merges either
-    rebase = preserve
-
 [push]
     ; `git push` without any refspec will push the current branch out to the
     ; same name at the remote repository only when it is set to track the
