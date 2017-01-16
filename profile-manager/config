@@ -18,9 +18,6 @@ dot-files() {
     ["vim/plugins"]="~/.vim/plugins"
     ["vim/vimrc"]="~/.vim/vimrc"
   )
-  post_install() {
-    voom
-  }
   post_update() {
     voom
     voom update
