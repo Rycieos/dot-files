@@ -1,14 +1,14 @@
 repo_dir="~/dev"
 
 assert.sh() {
-  repo_url="https://github.com:Rycieos/assert.sh.git"
+  repo_url="https://github.com/Rycieos/assert.sh.git"
   files=(
     ["assert.sh"]="~/bin/assert.sh"
   )
 }
 
 dot-files() {
-  repo_url="https://github.com:Rycieos/dot-files.git"
+  repo_url="https://github.com/Rycieos/dot-files.git"
   files=(
     ["bash/bashrc"]="~/.bashrc"
     ["git/config"]="~/.config/git/config"
@@ -28,28 +28,28 @@ dot-files() {
 }
 
 git-ohshit() {
-  repo_url="https://github.com:Rycieos/git-ohshit.git"
+  repo_url="https://github.com/Rycieos/git-ohshit.git"
   files=(
     ["git-ohshit"]="~/bin/git-ohshit"
   )
 }
 
 liquidprompt() {
-  repo_url="https://github.com:Rycieos/liquidprompt.git"
+  repo_url="https://github.com/Rycieos/liquidprompt.git"
   files=(
     ["liquidprompt"]="~/bin/liquidprompt"
   )
 }
 
 profile-manager() {
-  repo_url="https://github.com:Rycieos/profile-manager.git"
+  repo_url="https://github.com/Rycieos/profile-manager.git"
   files=(
     ["profile-manager"]="~/bin/profile-manager"
   )
 }
 
 voom() {
-  repo_url="https://github.com:Rycieos/voom.git"
+  repo_url="https://github.com/Rycieos/voom.git"
   files=(
     ["voom"]="~/bin/voom"
   )
