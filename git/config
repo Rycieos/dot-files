@@ -21,6 +21,7 @@
     diff-staged = diff --staged
     diffs = diff --staged
     exec = "!exec "
+    last = log -1 HEAD
     ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     s = status --short --branch
@@ -34,6 +35,7 @@
     sf = show --pretty="format:" --name-status
     tags = tag --list -n1
     undo = reset --soft HEAD^
+    unstage = reset HEAD --
 
 [core]
     ; Whitespace problems that git should recognize.
