@@ -16,6 +16,7 @@
     cop = checkout -p
     cot = checkout -t
     cp = cherry-pick
+    diff-functions = "!git log -p -${1:-1} | grep '^@@' | sed 's/@@.*@@ *//' | sort -u #"
     diff-head = diff HEAD
     diffh = diff HEAD
     diff-staged = diff --staged

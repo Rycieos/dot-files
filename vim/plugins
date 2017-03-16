@@ -8,6 +8,7 @@ junegunn/limelight.vim
 kopischke/vim-stay
 mbbill/undotree
 scrooloose/nerdcommenter
+terryma/vim-multiple-cursors
 tpope/vim-characterize
 tpope/vim-endwise
 tpope/vim-fugitive
