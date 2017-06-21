@@ -184,8 +184,13 @@ nnoremap :Q :q
 nnoremap :X :x
 nnoremap :W :w
 
-" use shift-space as escape (does not work because curses)
-"inoremap <S-Space> <Esc>
+" Auto expand brackets
+inoremap (; (<CR>);<C-c>O<TAB>
+inoremap (, (<CR>),<C-c>O<TAB>
+inoremap {; {<CR>};<C-c>O<TAB>
+inoremap {, {<CR>},<C-c>O<TAB>
+inoremap [; [<CR>];<C-c>O<TAB>
+inoremap [, [<CR>],<C-c>O<TAB>
 
 " automatically exit insert mode wth up or down arrows
 inoremap <silent> <Up> <ESC><Up>
