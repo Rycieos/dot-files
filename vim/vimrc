@@ -1,15 +1,15 @@
-set nocompatible            " do not be vi when config loaded on command line
+set encoding=utf-8          " this is the modern era
 scriptencoding utf-8        " for the funky chars we will load
 runtime bundle/vim-pathogen/autoload/pathogen.vim   " include pathogen
 
 execute pathogen#infect()
 
 " setup our dirs for storing things
-if !isdirectory($HOME."/.vim/swap")
-  silent call mkdir($HOME."/.vim/swap", "p")
+if !isdirectory($HOME.'/.vim/swap')
+  silent call mkdir($HOME.'/.vim/swap', 'p')
 endif
-if !isdirectory($HOME."/.vim/undo")
-  silent call mkdir($HOME."/.vim/undo", "p")
+if !isdirectory($HOME.'/.vim/undo')
+  silent call mkdir($HOME.'/.vim/undo', 'p')
 endif
 
 " grab default glob matching
@@ -29,7 +29,6 @@ set colorcolumn=+1          " mark the ideal max text width
 set cursorline              " highlight current line
 set directory=~/.vim/swap// " set common swap file dir
 set display=lastline        " show as much as possible of the last line
-set encoding=utf-8          " this is the modern era
 set expandtab               " tabs are spaces
 set foldenable              " enable folding
 set foldlevelstart=10       " open most folds by default
@@ -42,7 +41,7 @@ set hlsearch                " highlight matches
 set ignorecase              " case-insensitive search by default
 set incsearch               " search as characters are entered
 set lazyredraw              " redraw only when we need to
-set lcs=tab:»·,trail:·,nbsp:·     " render tabs, trailing, nonbreaking spaces
+set listchars=tab:»·,trail:·,nbsp:·  " render tabs, trailing/nonbreaking spaces
 set list                    " render special chars
 set matchpairs+=<:>         " show more matching characters
 set mouse=a                 " full mouse support
@@ -67,20 +66,20 @@ set splitright              " open vsplit to the right
 set tabstop=4               " number of visual spaces per TAB
 set undofile                " persistent undo across sessions
 set undodir=~/.vim/undo     " dir must exist to work
-set vi+=n~/.vim/viminfo     " put the viminfo file not in home dir
-set vop=cursor,folds,slash,unix     " save meta data with :mkview
+set viminfo+=n~/.vim/viminfo  " put the viminfo file not in home dir
+set viewoptions=cursor,folds,slash,unix  " save meta data with :mkview
 set virtualedit=block       " let cursor move past the last char in visual mode
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildmenu                " visual auto complete for command menu
 set wildmode=list:longest   " make command line tab completion similar to bash
 
-if has("mouse_sgr")         " fixes not being able to click on parts of screen
+if has('mouse_sgr')         " fixes not being able to click on parts of screen
   set ttymouse=sgr
 else
   set ttymouse=xterm2
 end
 
-let mapleader = ","         " leader key is comma
+let g:mapleader = ','       " leader key is comma
 
 " PLUGIN CONFIG
 " solarized
@@ -99,23 +98,23 @@ let g:mta_filetypes = {
   \}
 
 " supertab | I get their point, but down makes more sense
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
 " spell check
-function Spell()
+function! Spell()
   if &spell
     setlocal nospell
-    echo "Spell checking off"
+    echo 'Spell checking off'
   else
     setlocal spell
-    echo "Spell checking on"
+    echo 'Spell checking on'
   endif
 endfunction
 
 " set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=1 Stab call Stab(<f-args>)
-function Stab(spaces)
+function! Stab(spaces)
   let l:tabstop = 1 * a:spaces
   if l:tabstop > 0
     let &l:shiftwidth=l:tabstop
@@ -125,43 +124,33 @@ function Stab(spaces)
 endfunction
 
 " for when we need to edit a file with tabs
-function Tabs ()
+function! Tabs ()
   if &expandtab
     setlocal listchars=tab:\ \ ,trail:·
     setlocal noexpandtab
-    echo "Tabs"
+    echo 'Tabs'
   else
     setlocal listchars=tab:»·,trail:·
     setlocal expandtab
-    echo "Spaces"
+    echo 'Spaces'
   endif
 endfunction
 
-function! HighlightRepeats() range
-  let lineCounts = {}
-  let lineNum = a:firstline
-  while lineNum <= a:lastline
-    let lineText = getline(lineNum)
-    if lineText != ""
-      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
-    endif
-    let lineNum = lineNum + 1
-  endwhile
-  exe 'syn clear Repeat'
-  for lineText in keys(lineCounts)
-    if lineCounts[lineText] >= 2
-      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
-    endif
-  endfor
+command! HighlightRepeats call HighlightRepeats()
+function! HighlightRepeats()
+  sort
+  :g/^\(.*\)$\n\1$/p
 endfunction
-command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 
 " FILE
-au FileType gitcommit,html,markdown,php setlocal spell
-au FileType bash,vim,sh,python Stab 2
-au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ %
-au FileType python setlocal makeprg=./%
-au FileType python setlocal foldmethod=indent
+augroup vimrc
+  autocmd!
+  au FileType gitcommit,html,markdown,php setlocal spell
+  au FileType bash,vim,sh,python Stab 2
+  au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ %
+  au FileType python setlocal makeprg=./%
+  au FileType python setlocal foldmethod=indent
+augroup END
 
 " REMAPS
 " exit
@@ -189,12 +178,13 @@ nnoremap <silent> <F10> /\%>80v.\+<CR>
 nnoremap <silent> <F11> :Limelight!! 0.5<CR>
 
 " remove all trailing whitespace
-command! TrimWhitespace call TrimWhitespace()
-function TrimWhitespace()
-  let _s=@/
-  %s/\s\+$//e
-  let @/=_s
-  echo "Trimmed trailing whitespace"
+command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimWhitespace()
+function! TrimWhitespace() range
+  let @/='\v(\s+$)|( +\ze\t)'
+  let l:oldhlsearch=&hlsearch
+  let &hlsearch=1
+  execute a:firstline.','.a:lastline.'substitute ///gec'
+  let &hlsearch=l:oldhlsearch
 endfunction
 
 " for shift fumbles
