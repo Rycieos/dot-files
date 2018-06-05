@@ -23,7 +23,7 @@
     diffs = diff --staged
     exec = "!exec "
     last = log -1 HEAD
-    ll = log --all --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+    ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     s = status --short --branch
     sh = stash
@@ -52,6 +52,8 @@
     ; Allow `git diff` to do basic rename and copy detection.
     renames = copies
     tool = vimdiff
+    ; Always show whitespace errors, even if they were removed instead of added
+    wsErrorHighlight = all
 
 [fetch]
     ; Automatically prune during `git fetch`.
@@ -88,3 +90,6 @@
 
 [github]
     user = Rycieos
+
+[includeIf "gitdir:~/work/**"]
+    path = ~/work/.gitconfig/config
