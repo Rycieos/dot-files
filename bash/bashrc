@@ -81,6 +81,12 @@ shopt -s dirspell                 # fix spelling error on tab if doesn't exist
 shopt -s histappend               # append to history file
 shopt -s no_empty_cmd_completion  # don't complete when on empty line
 
+# Make history search work after we have typed some text already
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOA": history-search-backward'
+bind '"\eOB": history-search-forward'
+
 # cd options
 CDPATH=".:~:~/dev"                # cd relative dirs
 
