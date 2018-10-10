@@ -120,10 +120,12 @@ alias path='echo $PATH | tr ":" "\n"'
 if ls --color >/dev/null 2>&1; then
   alias ll='ls --color -lAh'
   alias la='ls --color -lah'
+  alias lz='ls --color -lahZ'
   alias ls='ls --color -lh'
 else
   alias ll='ls -lAh'
   alias la='ls -lah'
+  alias lz='ls -lahZ'
   alias ls='ls -lh'
 fi
 
