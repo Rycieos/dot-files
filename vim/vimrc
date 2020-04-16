@@ -146,7 +146,7 @@ endfunction
 augroup vimrc
   autocmd!
   au FileType gitcommit,html,markdown,php setlocal spell
-  au FileType bash,vim,sh,python Stab 2
+  au FileType bash,vim,sh Stab 2
   au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ %
   au FileType python setlocal makeprg=./%
   au FileType python setlocal foldmethod=indent
