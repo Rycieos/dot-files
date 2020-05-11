@@ -34,7 +34,7 @@ git-ohshit() {
 }
 
 liquidprompt() {
-  repo_url="https://github.com/Rycieos/liquidprompt.git"
+  repo_url="https://github.com/nojhan/liquidprompt.git"
   files=(
     ["liquidprompt"]="~/bin/liquidprompt"
   )
