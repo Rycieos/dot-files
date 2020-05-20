@@ -2,7 +2,6 @@
 # and interactive shell. Login shells read ~/.profile and interactive shells
 # read ~/.bashrc. To make all shells read ~/.bashrc, load it in ~/.bash_profile
 
-export TERM="xterm-256color"
 [[ -d ~/bin ]] && export PATH=~/bin:$PATH
 hash vim 2>/dev/null && export EDITOR=vim
 
@@ -15,7 +14,7 @@ if [[ -x ~/bin/profile-manager ]]; then
 fi
 
 # Function for getting amount of mail in inbox for prompt
-_new_mail() {
+function _new_mail() {
   if [ -r "$MAIL" ]; then
     NEWMAIL="$(grep -c '^Subject: ' "$MAIL")"
     if [ "$NEWMAIL" -gt -0 ]; then
@@ -26,8 +25,8 @@ _new_mail() {
 
 # Make a directory and move to it
 function md() {
-    mkdir "$1" || return $?
-    cd "$1"
+  mkdir "$1" || return $?
+  cd "$1"
 }
 
 # Run commands in each subdirectory
@@ -49,7 +48,7 @@ function find_modified() {
     echo "Ex: '-1 hour'"
     return 1
   fi
-  sudo find / -not \( -path /dev -prune \) -not \( -path /var/www/maps -prune \) -not \( -path /proc -prune \) -not \( -path /sys -prune \) -newermt "$(date -d "$1")" || return $?
+  sudo find / -not \( -path /dev -prune \) -not \( -path /proc -prune \) -not \( -path /sys -prune \) -newermt "$(date -d "$1")"
 }
 
 # List file extensions in the given directory
@@ -67,15 +66,13 @@ function list_types() {
 export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
 
 [[ -r ~/bin/liquidprompt     ]] && . ~/bin/liquidprompt
-[[ -r /etc/bash_completion   ]] && . /etc/bash_completion
-[[ -d /etc/bash_completion.d ]] && . /etc/bash_completion.d/*
-[[ -r ~/.alias               ]] && . ~/.alias
 
 # Enable auto-complete after sudo and man
 complete -cf sudo
 complete -cf man
 
 # Shell options
+shopt -s checkwinsize             # update LINES and COLUMNS after each command
 shopt -s cmdhist                  # save multi-line as one line
 shopt -s dirspell                 # fix spelling error on tab if doesn't exist
 shopt -s histappend               # append to history file
@@ -87,19 +84,19 @@ bind '"\e[B": history-search-forward'
 bind '"\eOA": history-search-backward'
 bind '"\eOB": history-search-forward'
 
-# cd options
-CDPATH=".:~:~/dev"                # cd relative dirs
-
 # History options
 HISTSIZE=10000                                        # larger history size
 HISTFILESIZE=10000
 HISTCONTROL="erasedups:ignoreboth"                    # avoid duplicates
 HISTTIMEFORMAT='%F %T '                               # timestamp entries
-export HISTIGNORE="&:[ ]*:exit:bg:fg:history:clear"   # Ignore some commands
+HISTIGNORE="&:[ ]*:exit:bg:fg:history:clear"          # Ignore some commands
 
 # Disable terminal bell
 # Many machines don't have setterm
-hash setterm 2>/dev/null && setterm -bfreq 0
+hash setterm 2>/dev/null && setterm -bfreq 0 2>/dev/null
+
+# Enable GPG to prompt for password on terminal
+export GPG_TTY=$(tty)
 
 # If the output is smaller than the screen height is smaller,
 # less will just cat it
@@ -108,20 +105,18 @@ export LESS="-FX -R"
 # Alias
 echo "" | which -i which >/dev/null 2>&1 &&
   alias which='alias | /usr/bin/which -i --tty-only --show-dot --show-tilde'
-alias realias='$EDITOR ~/.bashrc; source ~/.bashrc'
 alias df='df -h'
 alias du='du -hs'
 alias dus='du -hs * | sort -h'
 alias please='sudo $(history -p !!)'
 alias cd..='cd ..'
 alias netstat='ss -rput'
-alias dig='dig -t any +noall +answer'
 alias path='echo $PATH | tr ":" "\n"'
 if ls --color >/dev/null 2>&1; then
-  alias ll='ls --color -lAh'
-  alias la='ls --color -lah'
-  alias lz='ls --color -lahZ'
-  alias ls='ls --color -lh'
+  alias ll='ls --color=auto -lAh'
+  alias la='ls --color=auto -lah'
+  alias lz='ls --color=auto -lahZ'
+  alias ls='ls --color=auto -lh'
 else
   alias ll='ls -lAh'
   alias la='ls -lah'

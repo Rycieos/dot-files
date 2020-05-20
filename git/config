@@ -1,6 +1,7 @@
 [user]
     name = Mark Vander Stel
     email = mvndrstl@gmail.com
+    signingkey = 0564768A7264D53B
 
 [color]
     ui = true
@@ -54,6 +55,9 @@
     tool = vimdiff
     ; Always show whitespace errors, even if they were removed instead of added
     wsErrorHighlight = all
+
+[commit]
+    gpgsign = true
 
 [fetch]
     ; Automatically prune during `git fetch`.
