@@ -66,6 +66,10 @@ function list_types() {
 export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
 
 [[ -r ~/bin/liquidprompt     ]] && . ~/bin/liquidprompt
+for theme in ~/dev/liquidprompt/themes/*/*.theme; do
+  source "$theme"
+done
+unset theme
 
 # Enable auto-complete after sudo and man
 complete -cf sudo
