@@ -78,9 +78,11 @@ complete -cf man
 # Shell options
 shopt -s checkwinsize             # update LINES and COLUMNS after each command
 shopt -s cmdhist                  # save multi-line as one line
-shopt -s dirspell                 # fix spelling error on tab if doesn't exist
 shopt -s histappend               # append to history file
 shopt -s no_empty_cmd_completion  # don't complete when on empty line
+if (( ${BASH_VERSINFO[0]:-0} >= 4 )); then  # dirspell option added in Bash 4.0
+  shopt -s dirspell               # fix spelling error on tab if doesn't exist
+fi
 
 # Make history search work after we have typed some text already
 bind '"\e[A": history-search-backward'
