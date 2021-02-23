@@ -26,6 +26,7 @@
     last = log -1 HEAD
     ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+    pr = !git fetch -u ${2:-origin} +refs/pull/$1/head:pr/$1 && :
     s = status --short --branch
     sh = stash
     sha = stash apply
@@ -62,6 +63,10 @@
 [fetch]
     ; Automatically prune during `git fetch`.
     prune = true
+
+[pull]
+    ; Do not try to rebase or merge on a pull, error if cannot fast forward
+    ff = only
 
 [push]
     ; `git push` without any refspec will push the current branch out to the
