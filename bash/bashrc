@@ -65,7 +65,7 @@ function list_types() {
 # Basic PS1 in case liquidprompt does not load
 export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
 
-[[ -r ~/bin/liquidprompt     ]] && . ~/bin/liquidprompt
+[[ -r ~/dev/liquidprompt/liquidprompt ]] && . ~/dev/liquidprompt/liquidprompt
 for theme in ~/dev/liquidprompt/themes/*/*.theme; do
   source "$theme"
 done
