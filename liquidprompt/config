@@ -30,7 +30,7 @@ LP_RUNTIME_THRESHOLD=10
 
 # This light blue just fits better for me. I was going to make it the default,
 # but decided neutral tones were probably a safer default.
-lp_terminal_format 147 0 1 0 4 0
+lp_terminal_format 147 -1 1 0 4
 LP_COLOR_PATH_VCS_ROOT=$lp_terminal_format
 
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
