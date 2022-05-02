@@ -9,6 +9,13 @@ LP_PATH_METHOD=truncate_chars_to_unique_dir
 # my machines, and rarely leave sessions detached anyway.
 LP_ENABLE_DETACHED_SESSIONS=0
 
+# I have this in my OS status bar, I don't need it taking up space in my
+# terminal as well.
+LP_ENABLE_BATT=0
+
+# I just don't find this useful.
+LP_ENABLE_TEMP=0
+
 # While I rarely use this feature, I find it handy when I do.
 LP_ENABLE_DIRSTACK=1
 
@@ -32,5 +39,14 @@ LP_RUNTIME_THRESHOLD=10
 # but decided neutral tones were probably a safer default.
 lp_terminal_format 147 -1 1 0 4
 LP_COLOR_PATH_VCS_ROOT=$lp_terminal_format
+
+# I need higher contrast between on an off because of color blindness, and
+# most of the time these are off anyway, so why not make them subtle.
+LP_COLOR_WRITE=$LP_COLOR_PATH_SEPARATOR
+LP_COLOR_X11_OFF=$LP_COLOR_PATH_SEPARATOR
+
+# Always useful to see which context and namespace I have selected as default.
+LP_ENABLE_KUBECONTEXT=1
+LP_ENABLE_KUBE_NAMESPACE=1
 
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
