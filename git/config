@@ -102,3 +102,5 @@
 
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig/config
+[advice]
+	detachedHead = false
