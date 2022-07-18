@@ -7,15 +7,11 @@
     ui = true
 
 [alias]
-    commit-amend = commit --verbose --amend --reset-author
     authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
     c = commit --verbose
-    clear = reset --hard
+    ca = commit --verbose --amend
     conflicts = diff --name-only --diff-filter=U --relative
     co = checkout
-    cob = checkout -b
-    cop = checkout -p
-    cot = checkout -t
     cp = cherry-pick
     diff-functions = "!git log -p -${1:-1} | grep '^@@' | sed 's/@@.*@@ *//' | sort -u #"
     diff-head = diff HEAD
@@ -28,12 +24,6 @@
     lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
     pr = !git fetch -u ${2:-origin} +refs/pull/$1/head:pr/$1 && :
     s = status --short --branch
-    sh = stash
-    sha = stash apply
-    shd = stash drop
-    shl = stash list
-    shp = stash pop
-    shs = stash show -p
     sw = show --format=fuller
     sf = show --pretty="format:" --name-status
     tags = tag --list -n1
@@ -49,6 +39,10 @@
     editor = vim
     ; Convert CRLF to LF on commits
     autocrlf = input
+
+[advice]
+    detachedHead = false
+    statusHints = false
 
 [diff]
     ; Allow `git diff` to do basic rename and copy detection.
@@ -102,5 +96,3 @@
 
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig/config
-[advice]
-	detachedHead = false
