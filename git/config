@@ -54,6 +54,9 @@
 [commit]
     gpgsign = true
 
+[gpg]
+    program = gpg2
+
 [fetch]
     ; Automatically prune during `git fetch`.
     prune = true
