@@ -20,8 +20,8 @@
     diffs = diff --staged
     exec = "!exec "
     last = log -1 HEAD
-    ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
-    lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%an %C(red)%d%C(reset) %s'
+    ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%aN %C(red)%d%C(reset) %s'
+    lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%aN %C(red)%d%C(reset) %s'
     pr = !git fetch -u ${2:-origin} +refs/pull/$1/head:pr/$1 && :
     s = status --short --branch
     sw = show --format=fuller
@@ -78,6 +78,9 @@
 [merge]
     ; The used merge tool.
     tool = vimdiff
+
+[rebase]
+    instructionFormat = %ai %aN %d %s
 
 [sendemail]
     ; Review and edit each patch before sending.
