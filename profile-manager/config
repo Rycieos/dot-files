@@ -18,12 +18,6 @@ dot-files() {
     ["vim/plugins"]="~/.vim/plugins"
     ["vim/vimrc"]="~/.vim/vimrc"
   )
-  dot-files_post_install() {
-    voom
-  }
-  dot-files_post_update() {
-    voom
-  }
 }
 
 git-ohshit() {
@@ -47,10 +41,10 @@ profile-manager() {
   )
 }
 
-voom() {
-  repo_url="https://github.com/Rycieos/voom.git"
+vim-plug() {
+  repo_url="https://github.com/junegunn/vim-plug.git"
   files=(
-    ["voom"]="~/bin/voom"
+    ["plug.vim"]="~/.vim/autoload/plug.vim"
   )
   depends=(
     "vim"

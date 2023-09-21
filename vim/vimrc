@@ -1,8 +1,9 @@
 set encoding=utf-8          " this is the modern era
 scriptencoding utf-8        " for the funky chars we will load
-runtime bundle/vim-pathogen/autoload/pathogen.vim   " include pathogen
 
-execute pathogen#infect()
+call plug#begin()
+source <sfile>:h/plugins
+call plug#end()
 
 " setup our dirs for storing things
 if !isdirectory($HOME.'/.vim/swap')

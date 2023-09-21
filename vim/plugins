@@ -1,21 +1,27 @@
-airblade/vim-gitgutter
-altercation/vim-colors-solarized
-AndrewRadev/splitjoin.vim
-EinfachToll/DidYouMean
-ervandew/supertab
-hashivim/vim-terraform
-henrik/vim-indexed-search
-junegunn/limelight.vim
-kopischke/vim-stay
-mbbill/undotree
-scrooloose/nerdcommenter
-terryma/vim-multiple-cursors
-tpope/vim-characterize
-tpope/vim-endwise
-tpope/vim-fugitive
-tpope/vim-pathogen
-tpope/vim-repeat
-tpope/vim-surround
-tpope/vim-vinegar
-Valloric/MatchTagAlways
-wellle/targets.vim
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'EinfachToll/DidYouMean'
+Plug 'Valloric/MatchTagAlways'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
+Plug 'hashivim/vim-terraform'
+Plug 'junegunn/limelight.vim'
+Plug 'kopischke/vim-stay'
+Plug 'mbbill/undotree'
+Plug 'mg979/vim-visual-multi'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'wellle/targets.vim'
+
+Plug 'dense-analysis/ale'
+let g:ale_completion_enabled = 1
+
+if executable('rustup')
+    let g:ale_linters = {'rust': ['analyzer']}
+endif
