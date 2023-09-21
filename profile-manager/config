@@ -1,12 +1,5 @@
 repo_dir="~/dev"
 
-assert.sh() {
-  repo_url="https://github.com/Rycieos/assert.sh.git"
-  files=(
-    ["assert.sh"]="~/bin/assert.sh"
-  )
-}
-
 dot-files() {
   repo_url="https://github.com/Rycieos/dot-files.git"
   files=(
