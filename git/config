@@ -21,7 +21,8 @@
     exec = "!exec "
     last = log -1 HEAD
     ll = log --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%aN %C(red)%d%C(reset) %s'
-    lg = log --graph --branches --remotes --tags --pretty='format:%C(yellow)%h %C(green)%ai %C(bold blue)%aN %C(red)%d%C(reset) %s'
+    lg = ll --graph
+    lga = lg --all
     pr = !git fetch -u ${2:-origin} +refs/pull/$1/head:pr/$1 && :
     s = status --short --branch
     sw = show --format=fuller
