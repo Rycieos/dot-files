@@ -12,6 +12,7 @@
     ca = commit --verbose --amend
     conflicts = diff --name-only --diff-filter=U --relative
     co = checkout
+    commit-stash = "!ref=${2:-refs/stash}; git checkout -b ${1:-temp} $ref~ && git merge --squash $ref && git commit -C $ref --edit && git stash drop $ref #"
     cp = cherry-pick
     diff-functions = "!git log -p -${1:-1} | grep '^@@' | sed 's/@@.*@@ *//' | sort -u #"
     diff-head = diff HEAD
