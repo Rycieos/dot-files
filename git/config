@@ -29,6 +29,7 @@
     sw = show --format=fuller
     sf = show --pretty="format:" --name-status
     tags = tag --list -n1
+    tag-release = "!version=$(awk '/^## /{gsub(\"[][]\",\"\"); print $2; exit}' CHANGELOG.md) && git tag -s \"v$version\" -m \"$(awk '/^## /{if (flag==1) exit} /^## /{if (flag==0) flag=1} flag' CHANGELOG.md | sed 's/[][*]//g; s/^### *\\(.*\\)/\\1:/' | awk 'NR == 1 {gsub(\"[][]\",\"\"); print \"Version \" $2 \"\\n\"} NR > 1')\" --edit"
     undo = reset --soft HEAD^
     unstage = reset HEAD --
 
