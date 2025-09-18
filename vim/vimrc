@@ -178,6 +178,12 @@ nnoremap <silent> <F10> /\%>80v.\+<CR>
 " limelight
 nnoremap <silent> <F11> :Limelight!! 0.5<CR>
 
+" Use ctrl-[hjkl] to select the active split
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 " remove all trailing whitespace
 command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimWhitespace()
 function! TrimWhitespace() range
