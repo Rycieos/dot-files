@@ -27,6 +27,10 @@ liquidprompt() {
   )
 }
 
+gitstatus() {
+  repo_url="https://github.com/romkatv/gitstatus.git"
+}
+
 profile-manager() {
   repo_url="https://github.com/Rycieos/profile-manager.git"
   files=(

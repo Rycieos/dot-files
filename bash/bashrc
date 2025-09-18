@@ -59,11 +59,14 @@ function list_types() {
 }
 
 # Use the system config if it exists
-[[ -r /etc/bashrc            ]] && . /etc/bashrc
-[[ -r /etc/bash.bashrc       ]] && . /etc/bash.bashrc
+#[[ -r /etc/bashrc            ]] && . /etc/bashrc
+#[[ -r /etc/bash.bashrc       ]] && . /etc/bash.bashrc
 
 # Basic PS1 in case liquidprompt does not load
 export PS1="[\u@\h:\w] \$?\\$ \[$(tput sgr0)\]"
+
+[[ -r ~/dev/gitstatus/gitstatus.plugin.sh ]] && . ~/dev/gitstatus/gitstatus.plugin.sh
+gitstatus_start -s 100 -u 100 -c 100 -d 1
 
 [[ -r ~/dev/liquidprompt/liquidprompt ]] && . ~/dev/liquidprompt/liquidprompt
 for theme in ~/dev/liquidprompt/themes/*/*.theme; do
