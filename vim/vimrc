@@ -149,9 +149,11 @@ augroup vimrc
   autocmd!
   au FileType gitcommit,html,markdown,php setlocal spell
   au FileType bash,vim,sh Stab 2
-  au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ %
-  au FileType python setlocal makeprg=./%
-  au FileType python setlocal foldmethod=indent
+  au FileType bash,sh setlocal makeprg=shellcheck\ -xf\ gcc\ % |
+                    \ let g:sh_fold_enabed=3 |
+                    \ let g:is_bash=1
+  au FileType python setlocal makeprg=./% |
+                   \ setlocal foldmethod=indent
 augroup END
 
 " REMAPS
